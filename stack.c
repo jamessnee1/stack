@@ -5,6 +5,7 @@
 #include "stack.h"
 
 void stack_init(stack_s * stack, size_t size){
+	
 	assert(stack != NULL);
 
 	stack->size = size;
@@ -18,6 +19,7 @@ void stack_init(stack_s * stack, size_t size){
 }
 
 void stack_push(stack_s * stack, char item){
+	
 	assert(stack != NULL);
 	assert(stack->items != NULL);
 
@@ -35,7 +37,12 @@ void stack_push(stack_s * stack, char item){
 }
 
 char stack_pop(stack_s * stack){
+	
 	char val;
+
+	if (stack_is_empty(stack) == 1){
+		printf("Error: Nothing to pop, stack is empty!\n");
+	}
 
 	assert(stack != NULL);
 	assert(stack->top > 0);
@@ -48,15 +55,17 @@ char stack_pop(stack_s * stack){
 }
 
 int stack_is_empty(stack_s * stack){
+	
 	assert(stack != NULL);
 
-	if (stack->top == 0)
+	if (stack->top <= 0)
 		return 1;
 
 	return 0;
 }
 
 void stack_free(stack_s * stack){
+	
 	assert(stack != NULL);
 
 	if(stack->items) free(stack->items);
