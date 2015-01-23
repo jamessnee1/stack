@@ -1,5 +1,6 @@
 /* James Snee s3369721 Algorithms and Analysis */
 /* Summer 2015 Assignment 2 - Code */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,8 +37,6 @@ int main (){
 		}
 	}
 
-	stack_free(stack);
-
 	printf("Number of open brackets: %i. Number of close brackets: %i.\n", open, close);
 	if (open == close){
 		printf("Matching brackets.\n");
@@ -46,5 +45,7 @@ int main (){
 		printf("Non matching brackets.\n");
 	}
 
-	return(EXIT_SUCCESS);
+	stack_free(stack);
+
+	exit(EXIT_SUCCESS);
 }
