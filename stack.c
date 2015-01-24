@@ -1,3 +1,6 @@
+/* James Snee s3369721 Algorithms and Analysis */
+/* Summer 2015 Assignment 2 - Code */
+
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
