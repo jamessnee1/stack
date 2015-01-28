@@ -10,7 +10,7 @@
 /*The program accepts one command line argument: a user input string. If no*/
 /*user input is specified, the program will use the sample input provided*/
 /*PLEASE NOTE: due to a bash feature, if entering brackets as a command line*/
-/*argument, they need to be preceeded by a forward slash (\) */
+/*argument, they need to be preceeded by a forward slash (\) or enclosed in a quote (') */
 
 int main (int argc, char *argv[]){
 	
