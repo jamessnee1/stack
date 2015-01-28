@@ -7,17 +7,31 @@
 
 #include "stack.h"
 
+/*The program accepts one command line argument: a user input string. If no*/
+/*user input is specified, the program will use the sample input provided*/
+/*PLEASE NOTE: due to a bash feature, if entering brackets as a command line*/
+/*argument, they need to be preceeded by a forward slash (\) */
 
-int main (){
+int main (int argc, char *argv[]){
 	
-	stack_s *stack;
+	stack_s stack;
 	
 	int i, open = 0, close = 0;
 
 	/*sample input*/
-	char * input = "((a) + (b)) + ((c)(a))";
+	char *input;
 
-	stack_init(stack, INITIAL_STACK_SIZE);
+	/*check command line args*/
+	if (argc != 2){
+		printf("No user input detected, using example input.\n");
+		input = "((a) + (b)) + ((c)(a))";
+	}
+	else {
+		printf("User input detected.\n");
+		input = argv[1];
+	}
+
+	stack_init(&stack, INITIAL_STACK_SIZE);
 
 	printf("Input String: %s\n", input);
 
@@ -28,12 +42,12 @@ int main (){
 		if (input[i] == '('){
 			open++;
 			printf("Pushing ( to stack.\n");
-			stack_push(stack, '(');
+			stack_push(&stack, '(');
 		}
 		else if (input[i] == ')'){
 			close++;
 			printf("Popping ) from stack.\n");
-			stack_pop(stack);
+			stack_pop(&stack);
 		}
 	}
 
@@ -45,7 +59,7 @@ int main (){
 		printf("Non matching brackets.\n");
 	}
 
-	stack_free(stack);
+	stack_free(&stack);
 
 	exit(EXIT_SUCCESS);
 }
